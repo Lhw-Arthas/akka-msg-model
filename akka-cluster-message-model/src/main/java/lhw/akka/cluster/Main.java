@@ -23,7 +23,7 @@ public class Main {
         }
         Config config = ConfigFactory.parseString("akka.remote.netty.tcp.port=" + port).withFallback(ConfigFactory.load());
         ActorSystem actorSystem = ActorSystem.create("ClusterSystem", config);
-        System.out.println(port);
+        System.out.println(actorSystem.provider().getDefaultAddress().hostPort());
 
         ActorRef publisher = actorSystem.actorOf(Props.create(Publisher.class), "publisher_" + port);
         ActorRef subscriber = actorSystem.actorOf(Props.create(Subscriber.class), "subscriber_" + port);
