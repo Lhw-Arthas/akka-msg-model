@@ -23,6 +23,7 @@
     </build>
     <modules>
         <module>akka-remote-zk</module>
+        <module>akka-remote-ask-demo</module>
     </modules>
 
     <dependencies>
